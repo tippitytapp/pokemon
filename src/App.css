@@ -1,0 +1,21 @@
+*{
+  border: 1px solid gray;
+}
+
+.App {
+  text-align: center;
+}
+
+.pokemoncontainer{
+  display:flex;
+  flex-wrap:wrap;
+}
+.allpokes{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-evenly;
+}
+
+.indpoke{
+  margin: 2%;
+}
