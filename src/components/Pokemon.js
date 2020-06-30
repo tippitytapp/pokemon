@@ -4,6 +4,7 @@ import {fetchPokemon, fetchIndPokemon} from "../store/action/pokemonActions"
 import IndPokemon from "./IndPokemon"
 
 
+
 function Pokemon(props){
     useEffect(()=>{
         props.fetchPokemon(props.firstPage)
