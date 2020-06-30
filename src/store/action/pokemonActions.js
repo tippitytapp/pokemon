@@ -6,6 +6,8 @@ export const fetchPokemon = (url) => {
         axios.get(url)
             .then(res => {
                 dispatch({type: 'FETCH_POKE_SUCCESS', payload: res.data})
+
+                // let pokemonall = res.data.results.sort((a, b) => (a.id > b.id) ? 1: -1)
 return res.data.results.map(pokemon => {
                     dispatch({type: 'GET_IND_INFO_START'})
                     axios.get(pokemon.url)
