@@ -2,7 +2,9 @@ const initialState = {
     isLoading: false,
     pokemon: [],
     error: "",
-    nextPage: ""
+    firstPage: "https://pokeapi.co/api/v2/pokemon/",
+    nextPage: "",
+    prevPage: ""
 }
 
 export const pokeReducer = (state = initialState, action) => {

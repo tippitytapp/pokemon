@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const fetchPokemon = () => {
+export const fetchPokemon = (url) => {
     return dispatch => {
         dispatch({type: 'FETCH_POKE_START'})
-        axios.get('https://pokeapi.co/api/v2/pokemon/')
+        axios.get(url)
             .then(res => {
                 dispatch({type: 'FETCH_POKE_SUCCESS', payload: res.data})
 return res.data.results.map(pokemon => {

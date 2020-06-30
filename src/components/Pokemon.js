@@ -6,7 +6,7 @@ import IndPokemon from "./IndPokemon"
 
 function Pokemon(props){
     useEffect(()=>{
-        props.fetchPokemon()
+        props.fetchPokemon(props.firstPage)
     },[])
 
     return (
@@ -24,7 +24,8 @@ const mapStateToProps = (state) => {
     return {
         isLoading: state.pkr.isLoading,
         pokemon: state.pkr.pokemon,
-        error: state.pkr.error
+        error: state.pkr.error,
+        firstPage: state.pkr.firstPage
 
     }
 }
