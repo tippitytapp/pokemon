@@ -6,15 +6,14 @@ import IndPokemon from "./IndPokemon"
 
 
 function Pokemon(props){
-    useEffect(()=>{
-        props.fetchPokemon(props.firstPage)
-    },[])
 
     return (
         <div className="pokemoncontainer">
             {/* <button onClick={()=>{props.fetchPokemon()}}>Fetch Pokemon</button> */}
+            <header className="header"><h1> Pokedex</h1></header>
             {props.isLoading && (<h1>Loading ...</h1>)}
             <IndPokemon/>
+            {props.nextPage && (<button onClick={()=>{props.fetchPokemon(`${props.nextPage}`)}}>Load More</button>)}
 
         </div>
     )
@@ -26,7 +25,8 @@ const mapStateToProps = (state) => {
         isLoading: state.pkr.isLoading,
         pokemon: state.pkr.pokemon,
         error: state.pkr.error,
-        firstPage: state.pkr.firstPage
+        firstPage: state.pkr.firstPage,
+        nextPage: state.pkr.nextPage
 
     }
 }

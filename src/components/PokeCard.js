@@ -2,11 +2,11 @@ import React from "react";
 import {connect} from "react-redux";
 
 
-function PokeCard(props){
-    console.log('pokecard', props)
+function PokeCard({pokemon}){
+    console.log('pokecard', pokemon)
     return(
         <div className="indpokemoncard">
-            <p>{props.pokemon.name}</p>
+            <p>{pokemon.name}</p>
         </div>
     )
 }

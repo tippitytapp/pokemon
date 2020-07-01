@@ -1,11 +1,17 @@
 // dependency imports
 import React from "react"
+
 // import connect function to connect to the store
 import {connect} from "react-redux";
+
+// import routing dependencies
 import {Link, Route} from "react-router-dom"
 
 //import card
 import PokeCard from "./PokeCard";
+
+// import styling
+import {Button} from "reactstrap";
 
 function IndPokemon(props){
     // sort the pokemon by id
@@ -18,13 +24,15 @@ function IndPokemon(props){
                 // console.log("poke", poke)
         return (
             <div>
-                <Link key={poke.id} to={`/${poke.id}`}>
+
                     <div key={poke.id}className="indpoke">
                         <p>{poke.name.charAt(0).toUpperCase()+ poke.name.slice(1)}</p>
                         <img src={poke.sprites.front_default} alt={poke.name} />
+                        <Link key={poke.id} to={`/${poke.id}`}>
+                                <Button outline size="sm" color="info">view card</Button>
+                        </Link>
                     </div>
-                </Link>
-                <Route exact path={`/${poke.id}`}><PokeCard pokemon={poke} /></Route>
+
             </div>
                 )
             })}

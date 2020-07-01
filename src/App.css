@@ -5,10 +5,14 @@
 .App {
   text-align: center;
 }
-
+.header{
+  text-align: center;
+}
 .pokemoncontainer{
   display:flex;
   flex-wrap:wrap;
+  justify-content: center;
+  text-align: center;
 }
 .allpokes{
   display:flex;
