@@ -2,20 +2,24 @@ import React, {useEffect, useState} from "react";
 import {connect} from "react-redux";
 import {fetchPokemon, fetchIndPokemon} from "../store/action/pokemonActions"
 import IndPokemon from "./IndPokemon"
-
+import {Button, Spinner} from "reactstrap"
 
 
 function Pokemon(props){
 
     return (
+        <>
+                    <header className="header"><h1> Pokedex</h1></header>
+
         <div className="pokemoncontainer">
             {/* <button onClick={()=>{props.fetchPokemon()}}>Fetch Pokemon</button> */}
-            <header className="header"><h1> Pokedex</h1></header>
-            {props.isLoading && (<h1>Loading ...</h1>)}
+
             <IndPokemon/>
-            {props.nextPage && (<button onClick={()=>{props.fetchPokemon(`${props.nextPage}`)}}>Load More</button>)}
+            {props.isLoading && (<><Spinner style={{width: '4rem', height: '4rem'}} type="grow"/><br/></>)}
+            {props.nextPage && (<><br/><Button className="loadmore" onClick={()=>{props.fetchPokemon(`${props.nextPage}`)}}>Load More</Button></>)}
 
         </div>
+        </>
     )
 }
 

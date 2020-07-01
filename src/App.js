@@ -12,6 +12,9 @@ function App(props) {
   return (
     <div className="App">           
         <Route exact path="/"><Pokemon /></Route>
+        <footer>
+          <p>Made using the Poke API. (C) 2020</p>
+        </footer>
 
     </div>
   );
