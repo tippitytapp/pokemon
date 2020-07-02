@@ -24,11 +24,11 @@ console.log("props in modal", props)
                 <div>Stats: {props.poke.stats && props.poke.stats.map(item=>{
                     return(<p>Stat: {item.stat.name} {item.base_stat}</p>)
                 })}</div>
-                <div className="imgfrontback">
+                <div className="imgfrontback" >
+                    {props.poke.sprites && props.poke.sprites.front_shiny && (<img className="modalimg" style={{height: "200px", width: "200px"}} src={props.poke.sprites.front_shiny} alt={props.poke.name}/>)}
+                    {props.poke.sprites && props.poke.sprites.back_shiny && (<img className="modalimg" style={{height: "200px", width: "200px"}} src={props.poke.sprites.back_shiny}  alt={props.poke.name}/>)}
                     {props.poke.sprites && props.poke.sprites.front_default && (<img className="modalimg" style={{height: "200px", width: "200px"}} src={props.poke.sprites.front_default} alt={props.poke.name}/>)}
-                    {props.poke.sprites && props.poke.sprites.front_female ? (<img className="modalimg" style={{height: "200px", width: "200px"}} src={props.poke.sprites.front_female} alt={props.poke.name}/>) : (<></>)}
-                    {props.poke.sprites && props.poke.sprites.back_default && (<img className="modalimg" style={{height: "200px", width: "200px"}} src={props.poke.sprites.back_default}  alt={props.poke.name}/>)}
-                    {props.poke.sprites && props.poke.sprites.back_female ? (<img className="modalimg" style={{height: "200px", width: "200px"}} src={props.poke.sprites.back_female}  alt={props.poke.name}/>) : (<></>)}
+                    {props.poke.sprites && props.poke.sprites.back_default && (<img className="modalimg" style={{height: "200px", width: "200px"}} src={props.poke.sprites.back_default}  alt={props.poke.name}/>)}                
                 </div>
                 <Button color="info" onClick={toggleNested}>View Moves</Button>
                 <Modal isOpen={nestedOpen} toggle={toggleNested} onClosed={closeAll ? toggle : undefined}>

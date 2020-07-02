@@ -4,12 +4,6 @@ import React, {useState} from "react"
 // import connect function to connect to the store
 import {connect} from "react-redux";
 
-// import routing dependencies
-import {Link, Route} from "react-router-dom"
-
-//import card
-import PokeCard from "./PokeCard";
-
 // import styling
 import {Button, Card, CardImg, CardBody, CardTitle} from "reactstrap";
 import PokeModal from "./Modal"
@@ -30,10 +24,6 @@ const consoleTarget = e => {
                 }
         })
     }
-    const pokeToPass = (e) => {
-        let poke=e.target.id
-        console.log("pokeToPass",poke)
-    } 
     return(
         <div className="allpokes">{
             pokemon.map(poke => {
@@ -41,7 +31,7 @@ const consoleTarget = e => {
         return (
             <div>
                     <div key={poke.id}className="indpoke">
-                        <Card key={poke.id} style={{width:"150px"}} onClick={(e)=>{consoleTarget(e)}}>
+                        <Card key={poke.id} style={{width:"300px"}} onClick={(e)=>{consoleTarget(e)}}>
                             <CardImg top width="100%" src={poke.sprites.front_default} alt={poke.name} />
                             <CardBody id={poke.id}>
                                 <CardTitle id={poke.id}>{poke.name.charAt(0).toUpperCase()+ poke.name.slice(1)}</CardTitle>
