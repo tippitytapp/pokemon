@@ -25,10 +25,10 @@ console.log("props in modal", props)
                     return(<p>Stat: {item.stat.name} {item.base_stat}</p>)
                 })}</div>
                 <div className="imgfrontback">
-                    {props.poke.sprites && props.poke.sprites.front_default && (<img src={props.poke.sprites.front_default}/>)}
-                    {props.poke.sprites && props.poke.sprites.front_female ? (<img src={props.poke.sprites.front_female}/>) : (<></>)}
-                    {props.poke.sprites && props.poke.sprites.back_default && (<img src={props.poke.sprites.back_default}/>)}
-                    {props.poke.sprites && props.poke.sprites.back_female ? (<img src={props.poke.sprites.back_female}/>) : (<></>)}
+                    {props.poke.sprites && props.poke.sprites.front_default && (<img className="modalimg" style={{height: "200px", width: "200px"}} src={props.poke.sprites.front_default} alt={props.poke.name}/>)}
+                    {props.poke.sprites && props.poke.sprites.front_female ? (<img className="modalimg" style={{height: "200px", width: "200px"}} src={props.poke.sprites.front_female} alt={props.poke.name}/>) : (<></>)}
+                    {props.poke.sprites && props.poke.sprites.back_default && (<img className="modalimg" style={{height: "200px", width: "200px"}} src={props.poke.sprites.back_default}  alt={props.poke.name}/>)}
+                    {props.poke.sprites && props.poke.sprites.back_female ? (<img className="modalimg" style={{height: "200px", width: "200px"}} src={props.poke.sprites.back_female}  alt={props.poke.name}/>) : (<></>)}
                 </div>
                 <Button color="info" onClick={toggleNested}>View Moves</Button>
                 <Modal isOpen={nestedOpen} toggle={toggleNested} onClosed={closeAll ? toggle : undefined}>
@@ -45,6 +45,9 @@ console.log("props in modal", props)
                 </Modal>
 
             </ModalBody>
+            <ModalFooter>
+                <Button color="danger" onClick={props.itoggle}>Close</Button>
+            </ModalFooter>
         </Modal>
     )
 }

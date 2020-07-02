@@ -31,3 +31,10 @@ a{
   text-decoration: none;
   color: black;
 }
+.imgfrontback{
+  display:flex;
+  justify-content: space-evenly;
+}
+.modalimg:hover{
+transform:scale(1.5);
+}
