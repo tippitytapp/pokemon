@@ -17,33 +17,43 @@ import PokeModal from "./Modal"
 function IndPokemon(props){
     // sort the pokemon by id
     let pokemon = props.pokemon.sort((a, b) => (a.id > b.id) ? 1 : -1)
-
+const consoleTarget = e => {
+    console.log("targetid",e.target.id)
+}
     const [modal, setModal] = useState(false)
     const toggle=()=>setModal(!modal)
+    const [poketopass, setPoketopass] = useState([])
+    const findPoke=(e)=>{
+        pokemon.find(item=>{
+                if(item.id == e.target.id){
+                    setPoketopass(item)
+                }
+        })
+    }
+    const pokeToPass = (e) => {
+        let poke=e.target.id
+        console.log("pokeToPass",poke)
+    } 
     return(
         <div className="allpokes">{
             pokemon.map(poke => {
                 // console.log("poke", poke)
         return (
             <div>
-
                     <div key={poke.id}className="indpoke">
-                        <Card style={{width:"150px"}}>
+                        <Card key={poke.id} style={{width:"150px"}} onClick={(e)=>{consoleTarget(e)}}>
                             <CardImg top width="100%" src={poke.sprites.front_default} alt={poke.name} />
-                            <CardBody>
-                                <CardTitle>{poke.name.charAt(0).toUpperCase()+ poke.name.slice(1)}</CardTitle>
-                                <Button outline size="sm" color="info" onClick={()=>toggle()}>details</Button>
-                                <PokeModal poke={poke} isOpen={modal} itoggle={toggle}/>
+                            <CardBody id={poke.id}>
+                                <CardTitle id={poke.id}>{poke.name.charAt(0).toUpperCase()+ poke.name.slice(1)}</CardTitle>
+                                <Button outline size="sm" color="info" id={poke.id} onClick={(e)=>{toggle(); findPoke(e) }}>details</Button>
                             </CardBody>
                         </Card>
-
-                        <p></p>
-
                     </div>
-
             </div>
                 )
             })}
+            {console.log("poketopass", poketopass)}
+            <PokeModal key={poketopass.id }poke={poketopass} isOpen={modal} itoggle={toggle}/>
         </div>
     )
 }
