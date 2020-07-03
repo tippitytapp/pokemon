@@ -20,9 +20,12 @@ function Pokemon(props){
         e.preventDefault();
         setSearched(search);
         props.fetchSearchedPokemon(` https://pokeapi.co/api/v2/pokemon/${search.toLowerCase()}`);
-        if(props.error){
+        if( props.isSearching || props.error){
+            toggle();
+            toggle();
             return
         } else {
+            toggle();
             toggle();
             setSearch("")
         }
@@ -43,7 +46,7 @@ function Pokemon(props){
                             />
                             <Button>Go!</Button>
                         </form>
-                        <p style={{color: "red"}}>{props.error && (<>No pokemon named {searched} , please try again</>)}</p>
+                        <p style={{color: "red"}}>{props.searchError && (<>No pokemon named {searched} , please try again</>)}</p>
                     </header>
 
         <div className="pokemoncontainer">
@@ -53,7 +56,7 @@ function Pokemon(props){
             {props.nextPage && (<><br/><Button className="loadmore" onClick={()=>{props.fetchPokemon(`${props.nextPage}`)}}>Load More</Button></>)}
 
         </div>
-        <PokeModal key={props.searchedPoke.id }poke={props.searchedPoke} isOpen={modal} itoggle={toggle} error={props.error}/>
+        {!props.searchError && (<PokeModal key={props.searchedPoke.id }poke={props.searchedPoke} isOpen={modal} itoggle={toggle} error={props.error}/>)}
         </>
     )
 }
@@ -67,7 +70,8 @@ const mapStateToProps = (state) => {
         firstPage: state.pkr.firstPage,
         nextPage: state.pkr.nextPage,
         isSearching: state.pkr.isSearching,
-        searchedPoke: state.pkr.searchedPoke
+        searchedPoke: state.pkr.searchedPoke,
+        searchError: state.pkr.searchError
 
     }
 }

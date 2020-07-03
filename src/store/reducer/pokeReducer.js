@@ -6,7 +6,8 @@ const initialState = {
     nextPage: "",
     prevPage: "",
     isSearching: false,
-    searchedPoke: []
+    searchedPoke: [],
+    searchError: ""
 }
 
 export const pokeReducer = (state = initialState, action) => {
@@ -56,13 +57,15 @@ export const pokeReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isSearching: false,
-                searchedPoke: action.payload
+                searchedPoke: action.payload,
+                searchError: ""
             }
         case 'SEARCH_FAILURE':
             return {
                 ...state,
                 isSearching: false,
-                error: action.payload
+                searchError: action.payload,
+                searchedPoke: []
             }
         default:
             return state;

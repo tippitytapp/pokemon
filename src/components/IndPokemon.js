@@ -43,7 +43,7 @@ const consoleTarget = e => {
                 )
             })}
             {console.log("poketopass", poketopass)}
-            <PokeModal key={poketopass.id }poke={poketopass} isOpen={modal} itoggle={toggle}/>
+            {!props.searchError && (<PokeModal key={poketopass.id }poke={poketopass} isOpen={modal} itoggle={toggle}/>)}
         </div>
     )
 }
@@ -51,7 +51,8 @@ const consoleTarget = e => {
 // map your state from the reducer
 const mapStateToProps = state => {
     return {
-        pokemon: state.pkr.pokemon
+        pokemon: state.pkr.pokemon,
+        searchError: state.pkr.searchError
     }
 }
 // export and connect your app
