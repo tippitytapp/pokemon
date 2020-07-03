@@ -19,7 +19,7 @@ function Pokemon(props){
         <>
                     <header className="header">
                         <h1> Pokedex</h1>
-                        <form onSubmit={(e)=>{e.preventDefault();toggle();props.fetchSearchedPokemon(` https://pokeapi.co/api/v2/pokemon/${search}`)}}>
+                        <form onSubmit={(e)=>{e.preventDefault();toggle();props.fetchSearchedPokemon(` https://pokeapi.co/api/v2/pokemon/${search}`);setSearch("")}}>
                             <label htmlFor="search">Search: </label>
                             <input
                             type="text"
