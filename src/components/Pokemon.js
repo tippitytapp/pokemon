@@ -35,7 +35,7 @@ function Pokemon(props){
                     <header className="header">
                         <h1 style={{fontSize:'72px', margin: "1%"}}> Pokedex</h1>
                         <form onSubmit={(e)=>{handleSubmit(e)}}>
-                            <label htmlFor="search">Search:&nbsp;&nbsp;</label>
+                            <label htmlFor="search" style={{color: 'red'}}>Search:&nbsp;&nbsp;</label>
                             <input
                             type="text"
                             id="search"

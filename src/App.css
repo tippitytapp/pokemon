@@ -7,6 +7,12 @@ html{
 }
 .App {
   text-align: center;
+  background-image: url('./assets/pokeballunsplash.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: relative;
+  background-attachment: fixed;
+  top:0;
 }
 .header{
   text-align: center;
@@ -62,4 +68,13 @@ h1{
   font-size:72px;
   text-shadow: -3px 0 #2a75bb, 0 3px #2a75bb, 3px 0 #2a75bb, 0 -3px #2a75bb;
   margin: 1%;
+}
+.pokename{
+  font-size: 2rem;
+  color: #3c5aa6;
+  font-family: pokemon;
+  text-shadow: -1px 0 #ffcb05, 0 -1px #ffcb05, 1px 0 #ffcb05, 0 -1px #ffcb05;
+}
+footer{
+  color: red;
 }

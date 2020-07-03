@@ -31,10 +31,10 @@ const consoleTarget = e => {
         return (
             <div>
                     <div key={poke.id}className="indpoke">
-                        <Card key={poke.id} style={{width:"300px"}} onClick={(e)=>{consoleTarget(e)}}>
+                        <Card key={poke.id} style={{width:"300px", backgroundColor:"rgba(255, 255, 255, 0.4)"}} onClick={(e)=>{consoleTarget(e)}}>
                             <CardImg top width="100%" src={poke.sprites.front_default} alt={poke.name} />
                             <CardBody id={poke.id}>
-                                <CardTitle id={poke.id}>{poke.name.charAt(0).toUpperCase()+ poke.name.slice(1)}</CardTitle>
+                                <CardTitle className="pokename" id={poke.id}>{poke.name.charAt(0).toUpperCase()+ poke.name.slice(1)}</CardTitle>
                                 <Button outline size="sm" color="info" id={poke.id} onClick={(e)=>{toggle(); findPoke(e) }}>details</Button>
                             </CardBody>
                         </Card>
