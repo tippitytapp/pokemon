@@ -1,7 +1,10 @@
 /* *{
   border: 1px solid gray;
 } */
-
+html{
+  font-size: 100%;
+  font: inherit;
+}
 .App {
   text-align: center;
 }
@@ -40,4 +43,23 @@ transform:scale(1.5);
 }
 input{
   width: 400px;
+}
+
+@font-face{
+  font-family: pokemon;
+  src: url('./assets/Pokemon\ Solid.ttf');
+  font-size: larger;
+}
+@font-face{
+  font-family:pokemon_hollow;
+  src: url('./assets/Pokemon\ Hollow.ttf')
+}
+
+h1{
+  letter-spacing: 4px;
+  font-family:pokemon;
+  color: #ffcb05;
+  font-size:72px;
+  text-shadow: -3px 0 #2a75bb, 0 3px #2a75bb, 3px 0 #2a75bb, 0 -3px #2a75bb;
+  margin: 1%;
 }
