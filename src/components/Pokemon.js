@@ -8,18 +8,30 @@ import PokeModal from "./Modal"
 
 function Pokemon(props){
     const [search, setSearch] = useState("")
+    const [searched, setSearched] = useState("")
 
     const handleChange = e => {
         e.preventDefault()
-        setSearch(e.target.value)
+        setSearch(e.target.value)        
     }
     const [modal, setModal] = useState(false)
     const toggle=()=>setModal(!modal)
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        setSearched(search);
+        props.fetchSearchedPokemon(` https://pokeapi.co/api/v2/pokemon/${search.toLowerCase()}`);
+        if(props.error){
+            return
+        } else {
+            toggle();
+            setSearch("")
+        }
+    }
     return (
         <>
                     <header className="header">
                         <h1> Pokedex</h1>
-                        <form onSubmit={(e)=>{e.preventDefault();toggle();props.fetchSearchedPokemon(` https://pokeapi.co/api/v2/pokemon/${search.toLowerCase()}`);setSearch("")}}>
+                        <form onSubmit={(e)=>{handleSubmit(e)}}>
                             <label htmlFor="search">Search: </label>
                             <input
                             type="text"
@@ -31,6 +43,7 @@ function Pokemon(props){
                             />
                             <Button>Go!</Button>
                         </form>
+                        <p style={{color: "red"}}>{props.error && (<>No pokemon named {searched} , please try again</>)}</p>
                     </header>
 
         <div className="pokemoncontainer">
@@ -40,7 +53,7 @@ function Pokemon(props){
             {props.nextPage && (<><br/><Button className="loadmore" onClick={()=>{props.fetchPokemon(`${props.nextPage}`)}}>Load More</Button></>)}
 
         </div>
-        <PokeModal key={props.searchedPoke.id }poke={props.searchedPoke} isOpen={modal} itoggle={toggle}/>
+        <PokeModal key={props.searchedPoke.id }poke={props.searchedPoke} isOpen={modal} itoggle={toggle} error={props.error}/>
         </>
     )
 }

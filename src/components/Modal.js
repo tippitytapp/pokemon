@@ -16,6 +16,7 @@ console.log("props in modal", props)
         <Modal returnFocusAfterClose isOpen={props.isOpen}>
             <ModalHeader toggle={toggle} close={closeBtn}>{props.poke.name && props.poke.name.charAt(0).toUpperCase()+ props.poke.name.slice(1)}</ModalHeader>
             <ModalBody>
+
                 <p>Height: {props.poke.height}</p>
                 <p>Weight: {props.poke.weight}</p>
                 <div>Abilities: {props.poke.abilities && props.poke.abilities.map(item=>{
