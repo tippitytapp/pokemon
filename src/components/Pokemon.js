@@ -27,7 +27,7 @@ function Pokemon(props){
                             name="search"
                             value={search}
                             onChange={(e)=>handleChange(e)}
-                            placeholder="Search"
+                            placeholder="Search by Pokemon Name"
                             />
                             <Button>Go!</Button>
                         </form>

@@ -38,3 +38,6 @@ a{
 .modalimg:hover{
 transform:scale(1.5);
 }
+input{
+  width: 400px;
+}
