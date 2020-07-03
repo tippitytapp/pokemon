@@ -25,15 +25,16 @@ return res.data.results.map(pokemon => {
     }
 }
 
-export const fetchIndPokemon = (url) => {
+export const fetchSearchedPokemon = (url) => {
     return dispatch => {
-        // dispatch({type: 'GET_IND_INFO_START'})
-        // axios.get(url)
-        // .then(res => {
-        //     dispatch({type: 'FETCH_IND_INFO_SUCCESS', payload: res.data})
-        // })
-        // .catch(err => {
-        //     dispatch({type: 'FETCH_IND_INFO_FAILURE', payload: err.message})
-        // })
+        dispatch({type: 'SEARCH_START'})
+        axios.get(url)
+        .then(res => {
+            console.log("fetchsearchedpokemon", res)
+            dispatch({type: 'SEARCH_SUCCESS', payload: res.data})
+        })
+        .catch(err => {
+            dispatch({type: 'SEARCH_FAILURE', payload: err.message})
+        })
     }
 }

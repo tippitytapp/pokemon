@@ -4,7 +4,9 @@ const initialState = {
     error: "",
     firstPage: "https://pokeapi.co/api/v2/pokemon/",
     nextPage: "",
-    prevPage: ""
+    prevPage: "",
+    isSearching: false,
+    searchedPoke: []
 }
 
 export const pokeReducer = (state = initialState, action) => {
@@ -43,6 +45,23 @@ export const pokeReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
+                error: action.payload
+            }
+        case 'SEARCH_START':
+            return {
+                ...state,
+                isSearching: true
+            }
+        case 'SEARCH_SUCCESS':
+            return {
+                ...state,
+                isSearching: false,
+                searchedPoke: action.payload
+            }
+        case 'SEARCH_FAILURE':
+            return {
+                ...state,
+                isSearching: false,
                 error: action.payload
             }
         default:

@@ -19,7 +19,7 @@ console.log("props in modal", props)
                 <p>Height: {props.poke.height}</p>
                 <p>Weight: {props.poke.weight}</p>
                 <div>Abilities: {props.poke.abilities && props.poke.abilities.map(item=>{
-                    return (<p>{item.name}</p>)
+                    return (<p>{item.ability.name}</p>)
                 })}</div>
                 <div>Stats: {props.poke.stats && props.poke.stats.map(item=>{
                     return(<p>Stat: {item.stat.name} {item.base_stat}</p>)
